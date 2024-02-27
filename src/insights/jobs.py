@@ -19,7 +19,14 @@ class ProcessJobs:
             
 
     def get_unique_job_types(self) -> List[str]:
-        pass
-
+        #criar uma lista vazia
+        jobs_lista = []
+        #iterar sobre a lista de jobs
+        for job in self.jobs_list:
+            #adicionar o tipo de trabalho na lista
+            jobs_lista.append(job["job_type"])
+            #retornar a lista de tipos de trabalho
+        return list(set(jobs_lista))
+       
     def filter_by_multiple_criteria(self) -> List[dict]:
         pass
