@@ -5,3 +5,4 @@ def count_ocurrences(path: str, word: str) -> int:
     return word_count
 
 print(count_ocurrences("data/jobs.csv", "Python"))
+print(count_ocurrences("data/jobs.csv", "Javascript"))
