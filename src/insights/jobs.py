@@ -31,7 +31,8 @@ class ProcessJobs:
 
     def filter_by_multiple_criteria(self, jobs, filter) -> List[dict]:
         jobs_lista = []
-        # O método deve lançar uma exceção TypeError quando o filtro fornecido para o
+        # O método deve lançar uma exceção TypeError quando o filtro
+        # fornecido para o
         # método filter_by_multiple_criteria não é um dicionário
         if not type(filter) is dict:  # is é um ==
             raise TypeError
