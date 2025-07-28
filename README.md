@@ -31,11 +31,16 @@ Os dados foram extraídos do site [Glassdoor](https://www.glassdoor.com.br/) e o
 
 <details>
   
-Orientacoes
-
-
-
+## Orientações
 <details>
+<summary> 🐳 Início rápido com Docker Compose</summary><br>
+-Linter: python3 -m flake8
+   <strong>Executar os testes</strong>
+
+  ```bash
+  $ python3
+  <details>
+  ```
   <summary><strong>🏕️ Ambiente Virtual</strong></summary><br />
   O Python oferece um recurso chamado de ambiente virtual, onde permite sua máquina rodar sem conflitos, diferentes tipos de projetos com diferentes versões de bibliotecas.
 
@@ -62,18 +67,4 @@ Orientacoes
 
   O arquivo `dev-requirements.txt` contém todas as dependências que serão utilizadas no projeto, ele está agindo como se fosse um `package.json` de um projeto `Node.js`.
 </details>
-
-
-<details>
-  <summary><strong>🛠 Testes</strong></summary><br />
-
-  Para executar os testes certifique-se de que você está com o ambiente virtual ativado.
-
-  <strong>Executar os testes</strong>
-
-  ```bash
-  $ python3 -m pytest
-  ```
-</details>
-
 </details>
