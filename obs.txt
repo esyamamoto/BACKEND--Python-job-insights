@@ -1,0 +1,199 @@
+Python Job Insights - Projeto: Meu Passo a Passo das Implementações
+
+#1. Teste para contar ocorrências (test_counter)
+Objetivo: criar um teste automático para a função count_ocurrences que conta quantas vezes uma palavra aparece num arquivo CSV.
+
+Perguntas / passos:
+Onde devo implementar o teste?
+
+Em tests/counter/test_counter.py.
+
+Qual o nome do teste?
+
+test_counter.
+
+O que a função count_ocurrences recebe?
+
+Dois parâmetros:
+
+path (string com caminho do arquivo, ex: "data/jobs.csv")
+
+word (string com a palavra a ser contada).
+
+O que deve ser testado?
+
+Se a função retorna o número correto de ocorrências da palavra.
+
+A contagem deve ser case-insensitive (não diferencia maiúsculas e minúsculas).
+
+Como garantir isso no teste?
+
+Testar com palavras em diferentes casos ("Python", "python", "PYTHON").
+
+Testar para palavra "Javascript" também.
+
+Verificar se o resultado da função é o esperado.
+
+Como o teste será avaliado?
+
+Deve passar com implementações corretas.
+
+Deve falhar (ou ser XFAIL) para implementações erradas.
+
+Deve evitar falso positivo (teste que passa sem realmente validar).
+
+#2. Método read da classe ProcessJobs
+Objetivo: implementar o método que lê um arquivo CSV e armazena os dados em uma lista de dicionários (self.jobs_list).
+
+Perguntas / passos:
+Onde implementar?
+
+Em src/insights/jobs.py, dentro da classe ProcessJobs.
+
+O que o método read recebe?
+
+Um parâmetro path (string com caminho do arquivo CSV).
+
+O que o método deve fazer?
+
+Abrir o arquivo CSV no caminho fornecido.
+
+Ler o conteúdo usando o módulo CSV do Python.
+
+Armazenar os dados lidos em self.jobs_list como lista de dicionários.
+
+Cada dicionário tem como chave o cabeçalho e como valor os dados da linha.
+
+O método deve retornar algo?
+
+Sim, a lista self.jobs_list.
+
+Como posso testar manualmente?
+
+No terminal Python, instanciar ProcessJobs() e chamar read('/caminho/do/arquivo.csv').
+
+Verificar se self.jobs_list está correta e com o número certo de itens.
+
+3. Método get_unique_job_types
+Objetivo: retornar os tipos únicos da coluna job_type.
+
+Perguntas / passos:
+Onde implementar?
+
+Em src/insights/jobs.py, na classe ProcessJobs.
+
+O que o método deve fazer?
+
+Usar self.jobs_list (dados já carregados).
+
+Extrair todos os valores da coluna job_type.
+
+Retornar uma lista apenas com valores únicos, sem repetições.
+
+4. Método filter_by_multiple_criteria
+Objetivo: filtrar a lista de empregos por múltiplos critérios.
+
+Perguntas / passos:
+Onde implementar?
+
+Em src/insights/jobs.py, na classe ProcessJobs.
+
+Quais parâmetros o método recebe?
+
+jobs: lista de dicionários representando empregos.
+
+filter_criteria: dicionário com chave-valor, ex: {"industry": "Healthcare", "job_type": "PART_TIME"}.
+
+O que o método deve fazer?
+
+Retornar uma lista com os empregos que satisfaçam todos os critérios do filtro.
+
+O que deve acontecer se filter_criteria não for dicionário?
+
+Deve lançar um TypeError.
+
+Caso nenhum emprego satisfaça, o método retorna?
+
+Uma lista vazia.
+
+5. Método get_unique_industries
+Objetivo: obter valores únicos da coluna industry, ignorando valores vazios.
+
+Perguntas / passos:
+Onde implementar?
+
+Em src/insights/industries.py, na classe ProcessIndustries (que herda ProcessJobs).
+
+O que o método deve fazer?
+
+Usar self.jobs_list.
+
+Extrair valores da coluna industry.
+
+Retornar lista de valores únicos, excluindo entradas vazias.
+
+6. Método get_max_salary
+Objetivo: encontrar o maior salário na coluna max_salary.
+
+Perguntas / passos:
+Onde implementar?
+
+Em src/insights/salaries.py, na classe ProcessSalaries (herda ProcessJobs).
+
+O que o método deve fazer?
+
+Usar self.jobs_list.
+
+Ignorar valores ausentes ou inválidos.
+
+Retornar um inteiro com o maior valor da coluna max_salary.
+
+7. Método get_min_salary
+Objetivo: encontrar o menor salário na coluna min_salary.
+
+Perguntas / passos:
+Onde implementar?
+
+Em src/insights/salaries.py, na classe ProcessSalaries.
+
+O que o método deve fazer?
+
+Usar self.jobs_list.
+
+Ignorar valores ausentes ou inválidos.
+
+Retornar inteiro com menor valor da coluna min_salary.
+
+8. Método matches_salary_range
+Objetivo: verificar se um salário está dentro da faixa salarial de um emprego e validar dados.
+
+Perguntas / passos:
+Onde implementar?
+
+Em src/insights/salaries.py, na classe ProcessSalaries.
+
+Parâmetros:
+
+job: dicionário com min_salary e max_salary (podem ser números ou strings que representam números).
+
+salary: número ou string representando o salário a verificar.
+
+O que validar?
+
+min_salary e max_salary existem no dicionário job.
+
+Ambos são numéricos (ou strings numéricas).
+
+min_salary é menor ou igual a max_salary.
+
+salary é numérico (ou string numérica).
+
+Exceções a lançar:
+
+ValueError se faltar chave, valor não numérico, ou min_salary > max_salary.
+
+Retorno:
+
+True se salary está dentro da faixa [min_salary, max_salary].
+
+False caso contrário.
